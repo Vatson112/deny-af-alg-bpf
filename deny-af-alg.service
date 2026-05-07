@@ -1,0 +1,9 @@
+[Unit]
+Description=eBPF LSM: block AF_ALG (CVE-2026-31431)
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/deny_af_alg
+
+[Install]
+WantedBy=multi-user.target

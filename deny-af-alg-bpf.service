@@ -1,0 +1,13 @@
+[Unit]
+Description=eBPF LSM: block AF_ALG (CVE-2026-31431)
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/bpftool prog loadall \
+    /usr/local/bin/deny_af_alg.bpf.o \
+    /sys/fs/bpf/deny_af_alg autoattach
+ExecStop=/bin/rm -rf /sys/fs/bpf/deny_af_alg
+
+[Install]
+WantedBy=multi-user.target
