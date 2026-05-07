@@ -23,7 +23,7 @@ Programs
 
 Systemd
 
-- `deny-af-alg.service` - main service, contains userspace app
+- `deny-af-alg.service` - main service, contains userspace app and bpf program
 - `deny-af-alg-bpf.service` - legacy service, works via bpftool, dont contains logging
 
 ### CVE Fix Information
@@ -63,7 +63,7 @@ Build artifacts are placed in the project root:
 | `deny_af_alg.skel.h` | Generated BPF skeleton header |
 | `vmlinux.h` | Generated linux headers via btf |
 
-### Run command line
+### Run via command line
 
 ```bash
 sudo ./deny_af_alg
